@@ -14,7 +14,7 @@ namespace FunctionApp1
     {
         [FunctionName("Function1")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -33,8 +33,8 @@ namespace FunctionApp1
         }
 
         [FunctionName("azf_http_1")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+        public static async Task<IActionResult> Run2(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "2")] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -52,5 +52,4 @@ namespace FunctionApp1
             return new OkObjectResult(responseMessage);
         }
     }
-}
 }
